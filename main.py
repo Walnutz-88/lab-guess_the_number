@@ -7,7 +7,7 @@ def main():
 
         secret_number = random.randint(1, 100)
         attempts = 0
-        pb = 0
+        pb = 100000
         
         while True:
             try:
@@ -16,11 +16,11 @@ def main():
                 
                 if guess == secret_number:
                     print(f"Congratulations! You guessed the number in {attempts} attempts!")
-                    if attempts < pb:
+                    if attempts >= pb:
+                        print(f"You didn't beat your best of {pb} attempts.")
+                    else:
                         pb = attempts
                         print(f"New personal best: {pb}")
-                    else:
-                        print(f"You didn't beat your best of {pb} attempts.")
                     break
                 elif guess < secret_number:
                     print("Too low. Try again.")
